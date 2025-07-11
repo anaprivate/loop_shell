@@ -1,13 +1,11 @@
-' CheckInternet.vbs with safe TEMP-based logging (no admin needed)
-
 Dim objShell, wasConnected, fso, logFile, logPath
 Set objShell = CreateObject("WScript.Shell")
 Set fso = CreateObject("Scripting.FileSystemObject")
 
-' Use TEMP folder for safe write access
-logPath = objShell.ExpandEnvironmentStrings("%TEMP%\internet_check_log.txt")
+' Save log in user profile directory (safe, no admin required)
+logPath = objShell.ExpandEnvironmentStrings("%USERPROFILE%\internet_check_log.txt")
 
-' Open or create log file in append mode (mode 8)
+' Open or create the log file in append mode
 Set logFile = fso.OpenTextFile(logPath, 8, True)
 wasConnected = False
 
