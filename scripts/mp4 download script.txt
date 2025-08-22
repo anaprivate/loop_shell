@@ -1,4 +1,4 @@
-$videoPath = "D:\yt\media\ess.mp4"
+$videoPath = "D:\my pen\WhatsApp Video 2025-08-18 at 00.43.04_d657573a.mp4"
 $webhookUrl = "https://webhook.site/a8068665-7057-479e-98d4-36514404885d"
 
 # Generate boundary
