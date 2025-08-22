@@ -1,0 +1,39 @@
+$videoPath = "D:\my pen\WhatsApp Video 2025-08-18 at 00.43.04_d657573a.mp4"
+$webhookUrl = "https://webhook.site/a8068665-7057-479e-98d4-36514404885d"
+
+# Generate boundary
+$boundary = [System.Guid]::NewGuid().ToString()
+$LF = "`r`n"
+
+# Read video bytes
+$fileBytes = [System.IO.File]::ReadAllBytes($videoPath)
+$fileName = [System.IO.Path]::GetFileName($videoPath)
+
+# Build multipart header
+$header = "--$boundary$LF" +
+          "Content-Disposition: form-data; name=`"file`"; filename=`"$fileName`"$LF" +
+          "Content-Type: video/mp4$LF$LF"
+
+$footer = "$LF--$boundary--$LF"
+
+# Convert header/footer to bytes
+$headerBytes = [System.Text.Encoding]::ASCII.GetBytes($header)
+$footerBytes = [System.Text.Encoding]::ASCII.GetBytes($footer)
+
+# Combine all bytes
+$bodyBytes = $headerBytes + $fileBytes + $footerBytes
+
+# Create web request
+$req = [System.Net.WebRequest]::Create($webhookUrl)
+$req.Method = "POST"
+$req.ContentType = "multipart/form-data; boundary=$boundary"
+$req.ContentLength = $bodyBytes.Length
+
+$reqStream = $req.GetRequestStream()
+$reqStream.Write($bodyBytes, 0, $bodyBytes.Length)
+$reqStream.Close()
+
+# Send request
+$response = $req.GetResponse()
+$response.StatusDescription
+$response.Close()
